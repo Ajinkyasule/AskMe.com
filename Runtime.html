@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskMe - Search Engine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #e9ecef);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-size: 2.5em; /* Increased font size */
+        }
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 18px; /* Increased font size */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+        }
+        button {
+            padding: 15px 25px; /* Increased padding */
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 18px; /* Increased font size */
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #4cae4c;
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 20px;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px; /* More rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .result h2 {
+            margin: 0;
+            color: #dc3545;
+            font-size: 1.8em; /* Increased heading size */
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px; /* Increased footer text size */
+            color: #868e96;
+            text-align: center;
+        }
+        #footer-content {
+            font-weight: bold;
+            font-size: 20px; /* Increased size of ownership text */
+            color: #343a40; /* Footer text color */
+        }
+        /* Animation effect for the result */
+        .result {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .result.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AskMe Search Engine</h1>
+
+<div class="search-container">
+    <input type="text" id="searchQuery" placeholder="What do you want to know?" required>
+    <button onclick="performSearch()">Search</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<footer>
+    <p id="footer-content">Owned By Ajinkya Sule</p>
+    <p>&copy; 2024 AskMe. All rights reserved.</p>
+</footer>
+
+<script>
+    function performSearch() {
+        const query = document.getElementById('searchQuery').value;
+        const resultDiv = document.getElementById('result');
+
+        if (query) {
+            resultDiv.innerHTML = `<h2>Sorry!</h2><p>We are not available right now. We are in progress. Please visit after a few days.</p>`;
+            resultDiv.classList.add('visible'); // Add animation class
+        } else {
+            alert("Please enter a search term.");
+        }
+    }
+</script>
+
+</body>
+</html>
